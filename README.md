@@ -4,11 +4,11 @@ Create nested directories with this useful one-liner
 
     mkdir -p hsapiens-snps/{data/seqs,refs,bin,src,analysis}
     
-*Reference Genomes/Transcriptomes go into "refs"
-*Source code for downloaded tools go into "src"
-*Scripts you've written/compiled binaries go into "bin"
-*All of your raw data goes into "seqs"  # Makes your data compressed (gzip file.fasta) and read-only (chmod 400 file.fasta)
-*All of the intermediary files generated, results/figures should go into analysis folder. You can then logically seperate subprojects (e.g. sequencing-data-qc, alignment-results-qc, diff-exp-analysis, etc.)
+* Reference Genomes/Transcriptomes go into "refs"
+* Source code for downloaded tools go into "src"
+* Scripts you've written/compiled binaries go into "bin"
+* All of your raw data goes into "seqs"  # Makes your data compressed (gzip file.fasta) and read-only (chmod 400 file.fasta)
+* All of the intermediary files generated, results/figures should go into analysis folder. You can then logically seperate subprojects (e.g. sequencing-data-qc, alignment-results-qc, diff-exp-analysis, etc.)
 
 Create dated directories using the command date +%F for ISO 8601. If you keep a digital notebook you can Ctrl+F to look for something see what date you did it and easily find that subdirectory.
 
