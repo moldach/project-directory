@@ -2,7 +2,7 @@
 
 Create nested directories with this useful one-liner
 
-    mkdir -p hsapiens-snps/{data/seqs,refs,bin,src,analysis}
+    mkdir -p hsapiens-snps/{data/seqs,refs,bin,src,analysis, figures}
     
 * Reference Genomes/Transcriptomes go into "refs"
 * Source code for downloaded tools go into "src"
