@@ -15,23 +15,23 @@ Create nested directories with this useful one-liner in the terminal
 * Scripts you've written/compiled binaries go into `bin`
 * All of the intermediary files generated, results/figures should go into analysis folder. You can then logically seperate subprojects (e.g. `sequencing-data-qc`, `alignment-results-qc`, `diff-exp-analysis`, etc.)
 
-Create dated directories using the command date `+%F` for ISO 8601. If you keep a digital notebook you can `Ctrl+F` to look for something see what date you did it and easily find that subdirectory.
-
-    mkdir results-$(date +%F)
-
-### The README file
+## The README file
 
 Place a `README` file in each directory explaining how code is organized (*e.g.* `data/README.txt` contains metadata about all data files in data directory). For each filename, I recommend to have  short description of what the file is for. Document your methods/workflow, definition of code and symbols used to deal with missing data, include URL's for references to publication or external data and document when you download data (database release number/version number/names, etc.) and if you used MySQL or UCSC Genome browser to download data.
 
 Update the `README` file as you work. As you create new files and folders, add their descriptions to the `README`. Include a list of variables, units of measurement of each variable, and information about how others should cite your analysis.
 
-### File naming
+## File naming
 
-Use leading zeros for correct ordering of files with `ls`. For example use `file-0021.txt` **NOT** `file21.txt`
+* Avoid spaces: `2018 eda report.md` is not a good name but `2018_eda_report.md` is.
+* Avoid punctuation, periods and other special characters except for underscores and dashes.
+* Always use lower case: `Esophogael-Cancer_Report.md` is not a good name but `esophogael-cancer_report.md` is.
+* Use leading zeros (left-pad) for correct ordering of files with `ls`: Use `file-021.txt` **NOT** `file21.txt`.
+    * The numbers are determined by how many files you will potentially have. So if you may not have more than 1000 files you can choose three digits. If not more than a hundred files choose two digits and so on. 
+    
+Create dated directories/files using the command date `+%F` for ISO 8601 (`yyyy-mm-dd`). If you keep a digital notebook you can `Ctrl+F` to look for something see what date you did it and easily find that subdirectory.
 
-Digitially document your work in R Markdown or Pandoc to render markdown to HTML
-
-    pandoc --from markdown --to html notebook.md > output.html
+    mkdir results-$(date +%F)
     
 ## RStudio
 
@@ -53,9 +53,16 @@ If you wanted to include a path to a file named "exploratory_code.R" in your `da
 
 Each subdirectory or file in the path is in quotes and simply separated by commas within the `here()` function and the output from this code includes the correct file path to this file. Use `here()` to set the base project directory for each data science project you do. And also use relative paths throughtout your code any time you want to refer to a different directory or sub-directory within your project using the syntax above.
 
-### Write in a module way
+## Other tips
+### Write in a modular way
 
 It is recommended that you write code in a modular way so that each group of code that do similar things can be put in a single file and the master file calls these individual files. The result is a much cleaner and shorter master file.
+
+### Markdown
+
+Digitially document your work in R Markdown or Pandoc to render markdown to HTML
+
+    pandoc --from markdown --to html notebook.md > output.html
 
 ## Sources
 
