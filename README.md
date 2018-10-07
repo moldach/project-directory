@@ -8,12 +8,13 @@ Create nested directories with this useful one-liner in the terminal
 
     mkdir -p hsapiens-snps/{data/raw, data/tidy, refs, src, bin, analysis, figures}
     
-* All of your raw data goes into `raw`  # Make your data compressed (`gzip file.fasta`) and read-only (`chmod 400 file.fasta`)
+* All of your raw data goes into `raw`  # Compress (`gzip file.fasta`) and read-only (`chmod 400 file.fasta`)
 * All of your post processed data goes into `tidy` 
-* Reference Genomes/Transcriptomes go into "refs"
+* Reference Data (*e.g.* Genomes/Transcriptomes) go into `refs`
 * Source code for downloaded tools go into `src`
-* Scripts you've written/compiled binaries go into `bin`
-* All of the intermediary files generated, results/figures should go into analysis folder. You can then logically seperate subprojects (e.g. `sequencing-data-qc`, `alignment-results-qc`, `diff-exp-analysis`, etc.)
+* Scripts you've written and compiled binaries go into `bin`
+* All of the intermediary files generated, results/figures should go into analysis folder. 
+    * You can then logically seperate subprojects (e.g. `sequencing-data-qc`, `alignment-results-qc`, `diff-exp-analysis`, etc.)
 
 ## The README file
 
@@ -66,9 +67,12 @@ Digitially document your work in R Markdown or Pandoc to render markdown to HTML
 
 ## Sources
 
-* <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>
-* <https://nicercode.github.io/blog/2013-04-05-projects/>
-* <http://lab.loman.net/2014/05/14/how-i-start-a-bioinformatics-project/>
-* <https://www.biostarhandbook.com/>
+* [A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+* [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+* [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+* [The Biostar Handbook](https://www.biostarhandbook.com/)
+* [Organizing Data Science Projects](https://leanpub.com/universities/courses/jhu/cbds-organizing)
+* [Designing projects](https://nicercode.github.io/blog/2013-04-05-projects/), by [Rich Fitzjohn](https://nicercode.github.io/about/#Team)
+* [How I Start A Bioinformatics Project](http://lab.loman.net/2014/05/14/how-i-start-a-bioinformatics-project/), by [Nick Lowman](http://lab.loman.net/about/)
 * [here, here](https://github.com/jennybc/here_here), by [Jenny Bryan](https://www.stat.ubc.ca/~jenny/)
 * [here documentation](https://github.com/r-lib/here), by [Kirill Muller](https://github.com/krlmlr)
