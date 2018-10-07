@@ -1,32 +1,67 @@
-# A best-practices workflow for setting up a new project directory in linux
+# A best-practices workflow for setting up a new data science project directory in the terminal or R
 
-Create nested directories with this useful one-liner
+## GNU/Linux Terminal
 
-    mkdir -p hsapiens-snps/{data/seqs,refs,bin,src,analysis, figures}
+### Setting up the project directory in the terminal
+
+Create nested directories with this useful one-liner in the terminal
+
+    mkdir -p hsapiens-snps/{data/raw, data/tidy, refs, src, bin, analysis, figures}
     
+* All of your raw data goes into `raw`  # Make your data compressed (`gzip file.fasta`) and read-only (`chmod 400 file.fasta`)
+* All of your post processed data goes into `tidy` 
 * Reference Genomes/Transcriptomes go into "refs"
-* Source code for downloaded tools go into "src"
-* Scripts you've written/compiled binaries go into "bin"
-* All of your raw data goes into "seqs"  # Make your data compressed (gzip file.fasta) and read-only (chmod 400 file.fasta)
-* All of the intermediary files generated, results/figures should go into analysis folder. You can then logically seperate subprojects (e.g. sequencing-data-qc, alignment-results-qc, diff-exp-analysis, etc.)
+* Source code for downloaded tools go into `src`
+* Scripts you've written/compiled binaries go into `bin`
+* All of the intermediary files generated, results/figures should go into analysis folder. You can then logically seperate subprojects (e.g. `sequencing-data-qc`, `alignment-results-qc`, `diff-exp-analysis`, etc.)
 
-Create dated directories using the command date +%F for ISO 8601. If you keep a digital notebook you can Ctrl+F to look for something see what date you did it and easily find that subdirectory.
+Create dated directories using the command date `+%F` for ISO 8601. If you keep a digital notebook you can `Ctrl+F` to look for something see what date you did it and easily find that subdirectory.
 
     mkdir results-$(date +%F)
 
-Place a README file in each directory explaining what it is (e.g. data/README.txt) contains metadata about all data files in data directory
-Document your methods/workflow, include full command lines, include URL's for sources of external data and document when you download data (database release number/version number/names, etc.) and if you used MySQL or UCSC Genome browser to download data.
+### The README file
 
-Use leading zeros for correct ordering of files with "ls". For example use file-0021.txt NOT file21.txt
+Place a `README` file in each directory explaining how code is organized (*e.g.* `data/README.txt` contains metadata about all data files in data directory). For each filename, I recommend to have  short description of what the file is for. Document your methods/workflow, definition of code and symbols used to deal with missing data, include URL's for references to publication or external data and document when you download data (database release number/version number/names, etc.) and if you used MySQL or UCSC Genome browser to download data.
 
-Digitially document your work in R Markdown or Pandoc (in linux) to render markdown to HTML
+Update the `README` file as you work. As you create new files and folders, add their descriptions to the `README`. Include a list of variables, units of measurement of each variable, and information about how others should cite your analysis.
+
+### File naming
+
+Use leading zeros for correct ordering of files with `ls`. For example use `file-0021.txt` **NOT** `file21.txt`
+
+Digitially document your work in R Markdown or Pandoc to render markdown to HTML
 
     pandoc --from markdown --to html notebook.md > output.html
     
-    
+## RStudio
+
+For some tasks with larger scale data projects, it will be easier to work with files programmatically in R rather than at the Terminal. For example, if you are working with hundreds of different files, moving them to a location that depends on information in the files is much easier with a programming language such as `R` rather than at the Terminal. Also, to document your work going from raw files to finished products, a good approach is to combine your data work in R with your file organization work in `R`.
+
+### Useful functions
+
+In `R` use the `file.create()` function. To verify that the file has been created use `list.files()`. Use `file.rename()` function to change names or the `file.remove()` to remove files, and `file.exists()` to check if a file exists. You can use the `dir.create()` function to create directories in `R` as well.
+
+### Using relative paths make sharing projects easier
+
+Relative paths for each project are the correct approach because it will allow a new person to follow along and run all your code without any problems. If you used absolute paths that work for your computer, rather than relative paths, none of the paths will make any sense on the person's computer whom you've shared your content with.
+
+The `here` package is specifically designed to help you deal with file organization, allowing you to define in which folder all your relative paths should begin within a project. You set your project directory using `here()`, this function looks to see if you have a `.Rproj` file in your project then sets your base directory to whichever directory that file is located.
+
+If you wanted to include a path to a file named "exploratory_code.R" in your `data/raw` code directory, you would simply specifiy that in your code like this:
+
+    here("data", "raw", "exploratory_code.R")
+
+Each subdirectory or file in the path is in quotes and simply separated by commas within the `here()` function and the output from this code includes the correct file path to this file. Use `here()` to set the base project directory for each data science project you do. And also use relative paths throughtout your code any time you want to refer to a different directory or sub-directory within your project using the syntax above.
+
+### Write in a module way
+
+It is recommended that you write code in a modular way so that each group of code that do similar things can be put in a single file and the master file calls these individual files. The result is a much cleaner and shorter master file.
+
 ## Sources
 
 * <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>
 * <https://nicercode.github.io/blog/2013-04-05-projects/>
 * <http://lab.loman.net/2014/05/14/how-i-start-a-bioinformatics-project/>
 * <https://www.biostarhandbook.com/>
+* [here, here](https://github.com/jennybc/here_here), by [Jenny Bryan](https://www.stat.ubc.ca/~jenny/)
+* [here documentation](https://github.com/r-lib/here), by [Kirill Muller](https://github.com/krlmlr)
