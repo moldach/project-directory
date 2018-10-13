@@ -54,10 +54,26 @@ If you wanted to include a path to a file named "exploratory_code.R" in your `da
 
 Each subdirectory or file in the path is in quotes and simply separated by commas within the `here()` function and the output from this code includes the correct file path to this file. Use `here()` to set the base project directory for each data science project you do. And also use relative paths throughtout your code any time you want to refer to a different directory or sub-directory within your project using the syntax above.
 
-## Other tips
 ### Write in a modular way
 
 It is recommended that you write code in a modular way so that each group of code that do similar things can be put in a single file and the master file calls these individual files. The result is a much cleaner and shorter master file.
+
+## Template for pieces of data analysis
+
+Not every data analysis is the same and but this is a useful template for what the pieces of a data analysis are and how they flow together.
+
++ Define question
++ Determine what data you can access
++ Obtaining the data
++ Cleaning the data
++ Exploratory data analysis
++ Statistical prediction/modeling
++ Interpretation of results
++ Challenging of results
++ Synthsis and write up
++ Creating reproducible code
+
+
 
 ### Markdown
 
