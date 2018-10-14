@@ -73,9 +73,22 @@ Not every data analysis is the same and but this is a useful template for what t
 + Synthsis and write up
 + Creating reproducible code
 
-
-
 ### Markdown
+
+Use `knitr` for reproducible reports. `knitr` is ideal for
+
++ Manuals
++ Short/medium-length technical documents
++ Tutorials
++ Reports, especially if they will be generated periodically with updated data
++ Data preprocessing documents and summaries
+
+`knitr` is **not** well-suited for 
+
++ Very long research articles
++ Complex and time-consuming computations (better to use literatite programming in conjuction with `Makefiles`)
+
+Chunk caching is one way to avoid lengthy computations. By setting the `cache = TRUE` chunk option, it stores the output in a database in your working directory. Then, when you re-knit the document, instead of running the code in that particular chunk it re-loads the stored output from the database. By default dependencies between chunks are not checked. If the results of a cached chunk depend on a previous chunk that has been modified, those changes will not necessarily propogate down to later cached chunks.
 
 Digitially document your work in R Markdown or Pandoc to render markdown to HTML
 
@@ -90,5 +103,6 @@ Digitially document your work in R Markdown or Pandoc to render markdown to HTML
 * [Organizing Data Science Projects](https://leanpub.com/universities/courses/jhu/cbds-organizing)
 * [Designing projects](https://nicercode.github.io/blog/2013-04-05-projects/), by [Rich Fitzjohn](https://nicercode.github.io/about/#Team)
 * [How I Start A Bioinformatics Project](http://lab.loman.net/2014/05/14/how-i-start-a-bioinformatics-project/), by [Nick Lowman](http://lab.loman.net/about/)
+* [Report Writing for Data Science in R](https://leanpub.com/reportwriting), by [Roger D. Peng](http://www.biostat.jhsph.edu/~rpeng/)
 * [here, here](https://github.com/jennybc/here_here), by [Jenny Bryan](https://www.stat.ubc.ca/~jenny/)
 * [here documentation](https://github.com/r-lib/here), by [Kirill Muller](https://github.com/krlmlr)
