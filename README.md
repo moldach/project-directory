@@ -6,7 +6,7 @@
 
 Create a project directory and nested subdirectories with a one-liner in the Terminal:
 
-    mkdir -p hsapiens-snps/{data, refs, src, bin, analysis, figures}
+    mkdir -p hsapiens-snps/{data,refs,src,bin,analysis,figures}  # no spaces between subdirectories
     
 * All of your raw data goes into `raw`  # Compress (`gzip file.fasta`) and read-only (`chmod 400 file.fasta`)
 * All of your post processed data goes into `tidy` 
