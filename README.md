@@ -90,10 +90,6 @@ Use `knitr` for reproducible reports. `knitr` is ideal for
 
 Chunk caching is one way to avoid lengthy computations. By setting the `cache = TRUE` chunk option, it stores the output in a database in your working directory. Then, when you re-knit the document, instead of running the code in that particular chunk it re-loads the stored output from the database. By default dependencies between chunks are not checked. If the results of a cached chunk depend on a previous chunk that has been modified, those changes will not necessarily propogate down to later cached chunks.
 
-Digitially document your work in R Markdown or Pandoc to render markdown to HTML
-
-    pandoc --from markdown --to html notebook.md > output.html
-
 ## Sources
 
 * [A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
