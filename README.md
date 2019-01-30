@@ -6,14 +6,14 @@
 
 Create a project directory and nested subdirectories with a one-liner in the Terminal:
 
-    mkdir -p hsapiens-snps/{data,refs,src,bin,analysis,figures}  # no spaces between subdirectories
+    mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spaces between subdirectories
     
 * All of your raw data goes into `raw`  # Compress (`gzip file.fasta`) and read-only (`chmod 400 file.fasta`)
 * All of your post processed data goes into `tidy` 
 * Reference Data (*e.g.* Genomes/Transcriptomes) go into `refs`
 * Source code for downloaded tools go into `src`
 * Scripts you've written and compiled binaries go into `bin`
-* All of the intermediary files generated, results/figures should go into analysis folder. 
+* All of the intermediary files generated, should go into `analysis` folder. 
     * You can then logically seperate subprojects (e.g. `sequencing-data-qc`, `alignment-results-qc`, `diff-exp-analysis`, etc.)
 
 ## The README file
