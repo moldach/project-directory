@@ -57,7 +57,7 @@ mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spa
 There are a few differences between standard skeletons on terminal and
 `R`.
 
--   A `bin` folder is not required for `R` projects
+-   A `src` folder is not required for `R` projects
 -   Scripts should be kept in the `R` folder and you should have one
     script to run eveything if possible in the main directory
 
