@@ -1,7 +1,5 @@
 # A best-practices workflow for setting up a new data science project directory in the terminal or R
 
-## GNU/Linux Terminal
-
 ### Setting up the project directory in the terminal
 
 Create a project directory and nested subdirectories with a one-liner in the Terminal:
@@ -15,6 +13,11 @@ Create a project directory and nested subdirectories with a one-liner in the Ter
 * Scripts you've written and compiled binaries go into `bin`
 * All of the intermediary files generated, should go into `analysis` folder. 
     * You can then logically seperate subprojects (e.g. `sequencing-data-qc`, `alignment-results-qc`, `diff-exp-analysis`, etc.)
+
+### Setting up the project directory in R
+
+    folder_names <- c("data/raw", "data/tidy", "refs", "src", "bin", "analysis", "figures")
+    sapply(folder_names, dir.create)
 
 ## The README file
 
