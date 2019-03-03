@@ -39,7 +39,7 @@ mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spa
 ```
 
 -   All of your raw data goes into `raw` \# Compress (`gzip file.fasta`)
-    and read-only (`chmod 400 file.fasta`)
+    and read-only (`chmod 400 file.fasta`).
 -   All of your post processed data goes into `tidy`
 -   Reference Data (*e.g.* Genomes/Transcriptomes) go into `refs`
 -   Source code for downloaded tools go into `src`
@@ -57,15 +57,22 @@ mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spa
 There are a few differences between standard skeletons on terminal and
 `R`.
 
--   A `src` folder is not required for `R` projects
--   Scripts should be kept in the `R` folder and you should have one
-    script to run eveything if possible in the main directory
+-   A `bin` folder is not required for `R` projects
+-   Scripts should be kept in the `R` directory. Ideally you should have
+    one script to run eveything if possible in the main directory or a
+    `Makefile`
+-   A `man` directory that contains the manual (*i.e.* documentation)
+    for the use of the functions in your package (*optional directory if
+    using `roxygen2`, you should!*)
+-   Github is not designed for hosting large datasets, either host them
+    externally or provide a small-sample dataset that people can try out
+    the techniques without having to runn very expensive computations
 
 Create `New Project` with `RStudio` (*e.g.* hsapiens-snps) and then
 create the subfolders
 
 ``` r
-folder_names <- c("data/raw", "data/tidy", "refs", "R", "analysis", "figures")
+folder_names <- c("data/raw", "data/tidy", "refs", "R", "analysis", "figures", "man")
 sapply(folder_names, dir.create)
 ```
 
@@ -133,28 +140,50 @@ The `README` file
 
 ------------------------------------------------------------------------
 
-Place a `README` file in each directory explaining how code is organized
-(*e.g.* `data/README.txt` contains metadata about all data files in data
-directory). For each filename, I recommend to have short description of
-what the file is for. Document your methods/workflow, definition of code
-and symbols used to deal with missing data, include URL’s for references
-to publication or external data and document when you download data
-(database release number/version number/names, etc.) and if you used
-MySQL or UCSC Genome browser to download data.
+A `README.md` file that describes the overall project and where to get
+started. It may be helpful to include a graphical summary of the
+interlocking pieces of the project.
+
+In each directory explaining how code is organized (*e.g.*
+`data/README.txt` contains metadata about all data files in data
+directory). For each filename, I recommend to have a short description
+of what the file is for. Document your `methods/workflow`, definition of
+code and symbols used to deal with missing data, include `URL`’s for
+references to publication or external data and document when you
+download data (database release number/version number/names, *etc*.) and
+if you used `MySQL` or `UCSC Genome browser` to download data.
 
 Update the `README` file as you work. As you create new files and
 folders, add their descriptions to the `README`. Include a list of
 variables, units of measurement of each variable, and information about
 how others should cite your analysis.
 
+The `DESCRIPTION` file
+----------------------
+
+A `DESCRIPTION` file in the project root provides formally structured,
+machine- and human-readable information about the authors, the project
+license, the software dependencies, and other metadata of the
+compendium. When youre compendium is an R package, you can take
+advantage of many time-saving tools for package development, testing,
+and sharing (*e.g.* the `devtools` package).
+
+The `NAMESPACE` file
+--------------------
+
+A `NAMESPACE` file in the project root provides that provides the
+exports the functions in a package, so that they can be used in the
+current project and by other packages.
+
 Creating a research commpendium
 -------------------------------
 
 ------------------------------------------------------------------------
 
-Temple Lang and Gentleman (2007) advance the proposal for using the R
+Temple, Lang and Gentleman (2007) advanced the proposal for using the R
 package structure as a “Research Compendium,” an idea that has since
-caught on with many others.
+caught on with many others [(Marwick *et al.,*
+2018)](https://doi.org/10.1080/00031305.2017.1375986).
 
 -   [Papers with publicly available datasets may recieve a higher number
     of citations than similar studies without available
@@ -182,6 +211,47 @@ or
 (*TO DO*: look into the `reticulate` package and see how complex
 multi-language workflows are managed)
 
+### Examples of real-world research compendia using R packages
+
+-   [Hollister *et al.,*
+    2016](https://github.com/USEPA/LakeTrophicModelling)
+-   [Boettiger *et al.,*
+    2015](https://github.com/cboettig/nonparametric-bayes)
+
+The Boettiger and colleagues example provides a more complex example of
+a large compendia. This example includes a `.travis.yml`, a
+configuration file for the Travis continuous integration service, a
+`Dockerfile` that instructs the Docker software how to create a virtual
+environment for running the R code in an isolated and portable context,
+and the `Makefile` which has instructions for executing R code in the
+compendium in a way that avoids unnecessary repetition. These three
+files contain organizing metadata that are intenteded to be both
+machine- and human-readable, but are not written in the R language.
+
+Unit tests, contained in the `tests` directory, are R code scripts to
+test that specific functions in the compendium produce their expected
+outputs, given known inputs. The addition of these tools, intitially
+developed for software engineering, solves the problems of specifiying
+the computational environment and the relationships between data, code,
+and output.
+
+The top-level `manuscripts` directory of Boettiger *et al.,* holds the
+files that generate the journal articel and the supplementary documents,
+as well as the `Makefile` and `Dockerfile`. Other notable items at the
+top-level of this compendium are the `.drone.yml`, `.zenodo.json` and
+`.traivs.yml` files. The drone file contains configuration details for
+the Drone continous integration service that operates in Docker
+containers. In this case, each time a commit is made to the repository,
+the Drone web service automatically renders the manuscript files
+(including running the R code in the manuscript) to PDF in a Docker
+container defined by the `Dockerfile` in `manuscripts/`. This provides
+an automatic check to see if a PDF can be generated from the manuscript
+R markdown files after the last commit. The `.travis.yml` file performs
+a similar purpose, but is focused on whether or not the R package can be
+successfully build in a generic Linux environment. The `.zenodo.json`
+file provides machine-readable metafata about the compendium. This is
+useful for automatically archiving the compendium at zenodo.
+
 ### Automatically create project skeletons in R
 
 ------------------------------------------------------------------------
@@ -196,6 +266,13 @@ consistent and reproducible, while the `createPackageProject()` helps
 setup a project with code coverage, vignettes, unit testing *etc.* out
 of the box.
 
+By organizing files into an R package, you follow conventions that save
+you tume thinking about the best way to organize your project. Writing
+functions for packages makes it easy to document the use of code
+(particularly if you use `roxygen2`). This documentation can help you be
+productive more quickly when returning to work on a project after
+stepping away from it.
+
 As a project grows in size and collaboration, having the more rigid
 structure offered by a package format becomes increasingly valuable.
 Packages can automate installation of dependencies, perform checks that
@@ -203,6 +280,12 @@ changes have not broken code, and provide a modular and highly tested
 framework for collecting together the three essential elements: data,
 code, and manuscript-quality documentation, in a powerful and
 feature-rich environment.
+
+> When you iteratively develop a package, you can easily run
+> comprehensive checks on your code with `R CMD check` at the terminal
+> or `devtools::check()` at the R console. Regular checking your package
+> like this can help identify problems before they become very
+> frustrating to solve.
 
 Packages are meant to be distributed, so viewing a project as a package
 means preparing your project to be distributed. This can help keep you
@@ -263,3 +346,6 @@ Acknowledgments
     Tran](https://andrewbtran.github.io/NICAR/2018/workflow/docs/01-workflow_intro.html?utm_content=buffer858fd&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 -   [ropensci/rrrpkg: tools and templates for making research
     compendia](https://github.com/ropensci/rrrpkg#useful-tools-and-templates-for-making-research-compendia)
+-   [How to share data with a
+    statistician](https://github.com/jtleek/datasharing) by [Jeff
+    Leek](http://jtleek.com/)
