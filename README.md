@@ -6,12 +6,12 @@ Best Practices for Data Science Project Workflows and File Organization
 ------------------------------------------------------------------------
 
 To ensure replicability and traceability of scientific claims, it is
-essential that the scientific publication, the corresponding datasets,
+essential that the scientific publication, the corresponding data sets,
 and the data analysis are made publicly available. All software should
-be openly shared and directly acessible to others. Publications should
+be openly shared and directly accessible to others. Publications should
 highlight that the code is freely available in, for example, Github.
 This openness can increase the chances of getting the paper accepted for
-publicaiton. Journal editors and reviewers recieve the opportunity to
+publication. Journal editors and reviewers receive the opportunity to
 reproduce findings during the manuscript review process, increasing
 confidence in the reported results. Once the paper is published, your
 work can be reproduced by other member of the scientific community,
@@ -34,7 +34,7 @@ for what the pieces of a data analysis are and how they flow together.
 -   Statistical prediction/modeling
 -   Interpretation of results
 -   Challenging of results
--   Synthsis and write up
+-   Synthesis and write up
 -   Creating reproducible code
 
 Creating a project skeleton
@@ -46,8 +46,8 @@ Creating a project skeleton
 
 ------------------------------------------------------------------------
 
-Create a project directory and nested subdirectories with a one-liner in
-the `Terminal`:
+Create a project directory and nested sub directories with a one-liner
+in the `Terminal`:
 
 ``` bash
 mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spaces between subdirectories
@@ -61,7 +61,7 @@ mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spa
 -   Scripts you’ve written and compiled binaries go into `bin`
 -   All of the intermediary files generated, should go into `analysis`
     folder.
-    -   You can then logically seperate subprojects
+    -   You can then logically separate sub projects
         (e.g. `sequencing-data-qc`, `alignment-results-qc`,
         `diff-exp-analysis`, etc.)
 
@@ -74,17 +74,17 @@ There are a few differences between standard skeletons on terminal and
 
 -   A `bin` folder is not required for `R` projects
 -   Scripts should be kept in the `R` directory. Ideally you should have
-    one script to run eveything if possible in the main directory or a
+    one script to run everything if possible in the main directory or a
     `Makefile`
 -   A `man` directory that contains the manual (*i.e.* documentation)
     for the use of the functions in your package (*optional directory if
     using `roxygen2`, you should!*)
--   Github is not designed for hosting large datasets, either host them
-    externally or provide a small-sample dataset that people can try out
-    the techniques without having to runn very expensive computations
+-   Github is not designed for hosting large data sets, either host them
+    externally or provide a small-sample data set that people can try
+    out the techniques without having to run very expensive computations
 
 Create `New Project` with `RStudio` (*e.g.* hsapiens-snps) and then
-create the subfolders
+create the sub folders
 
 ``` r
 folder_names <- c("data/raw", "data/tidy", "refs", "R", "analysis", "figures", "man")
@@ -143,8 +143,8 @@ File naming
 
 Create dated directories/files using the command date `+%F` for ISO 8601
 (`yyyy-mm-dd`). If you keep a digital notebook you can `Ctrl+F` to look
-for something see what date you did it and easily find that
-subdirectory.
+for something see what date you did it and easily find that sub
+directory.
 
 ``` bash
 mkdir results-$(date +%F)
@@ -210,7 +210,7 @@ interlocking pieces of the project.
 
 In each directory explaining how code is organized (*e.g.*
 `data/README.txt` contains metadata about all data files in data
-directory). For each filename, I recommend to have a short description
+directory). For each file name, I recommend to have a short description
 of what the file is for. Document your `methods/workflow`, definition of
 code and symbols used to deal with missing data, include `URL`’s for
 references to publication or external data and document when you
@@ -231,9 +231,9 @@ The `DESCRIPTION` file
 A `DESCRIPTION` file in the project root provides formally structured,
 machine- and human-readable information about the authors, the project
 license, the software dependencies, and other metadata of the
-compendium. When youre compendium is an R package, you can take
-advantage of many time-saving tools for package development, testing,
-and sharing (*e.g.* the `devtools` package).
+compendium. When yore compendium is an R package, you can take advantage
+of many time-saving tools for package development, testing, and sharing
+(*e.g.* the `devtools` package).
 
 The `NAMESPACE` file
 --------------------
@@ -252,11 +252,11 @@ package structure as a “Research Compendium,” an idea that has since
 caught on with many others [(Marwick *et al.,*
 2018)](https://doi.org/10.1080/00031305.2017.1375986).
 
--   [Papers with publicly available datasets may recieve a higher number
-    of citations than similar studies without available
+-   [Papers with publicly available data sets may receive a higher
+    number of citations than similar studies without available
     data](https://doi.org/10.1080/00031305.2017.1375986)
 -   Data sharing is associated with higher publication productivity
--   A commpendium makes it easier to communicate our work with others,
+-   A compendium makes it easier to communicate our work with others,
     including collaborators and (not least of all) our future selves
 
 It may be tempting to organize all scripts and reports with ascending
@@ -292,22 +292,22 @@ configuration file for the Travis continuous integration service, a
 environment for running the R code in an isolated and portable context,
 and the `Makefile` which has instructions for executing R code in the
 compendium in a way that avoids unnecessary repetition. These three
-files contain organizing metadata that are intenteded to be both
-machine- and human-readable, but are not written in the R language.
+files contain organizing metadata that are intended to be both machine-
+and human-readable, but are not written in the R language.
 
 Unit tests, contained in the `tests` directory, are R code scripts to
 test that specific functions in the compendium produce their expected
-outputs, given known inputs. The addition of these tools, intitially
-developed for software engineering, solves the problems of specifiying
+outputs, given known inputs. The addition of these tools, initially
+developed for software engineering, solves the problems of specifying
 the computational environment and the relationships between data, code,
 and output.
 
 The top-level `manuscripts` directory of Boettiger *et al.,* holds the
-files that generate the journal articel and the supplementary documents,
+files that generate the journal article and the supplementary documents,
 as well as the `Makefile` and `Dockerfile`. Other notable items at the
 top-level of this compendium are the `.drone.yml`, `.zenodo.json` and
 `.traivs.yml` files. The drone file contains configuration details for
-the Drone continous integration service that operates in Docker
+the Drone continuous integration service that operates in Docker
 containers. In this case, each time a commit is made to the repository,
 the Drone web service automatically renders the manuscript files
 (including running the R code in the manuscript) to PDF in a Docker
@@ -316,7 +316,7 @@ an automatic check to see if a PDF can be generated from the manuscript
 R markdown files after the last commit. The `.travis.yml` file performs
 a similar purpose, but is focused on whether or not the R package can be
 successfully build in a generic Linux environment. The `.zenodo.json`
-file provides machine-readable metafata about the compendium. This is
+file provides machine-readable metadata about the compendium. This is
 useful for automatically archiving the compendium at zenodo.
 
 ### Automatically create project skeletons in R and integrate
@@ -324,7 +324,7 @@ useful for automatically archiving the compendium at zenodo.
 ------------------------------------------------------------------------
 
 The [`starters` package](https://github.com/lockedata/starters) on
-Github provides a number of functions, leveraging the `usethis` pacakge,
+Github provides a number of functions, leveraging the `usethis` package,
 designed to take away *some* of the grunt work involved in setting up
 new projects. The `createAnalysisProject()` function creates a project
 ready for a typical analysis project with `packrat` to manage
@@ -335,11 +335,11 @@ vignettes, unit testing *etc.* out of the box.
 Dedicated code testing is aimed at detecting possible bugs introduced by
 new features or changes in the code or dependencies, as well as
 detecting wrong results, known as *logic errors*, in which the source
-code produces a different result than what was intended. Continuos
+code produces a different result than what was intended. Continuous
 integration provides a way to automatically and systematically run a
 series of tests to check integrity and performance of code, a task that
 can be automated through Github. `starters` sets up \[Travis
-CI\](<a href="https://travis-ci.org/" class="uri">https://travis-ci.org/</a>,
+CI\](<a href="https://Travis-ci.org/" class="uri">https://Travis-ci.org/</a>,
 a hosted continued integration platform that is free for all open-source
 projects. Travis CI builds and test the source code using a plethora of
 options such as different platforms and interpreter versions.
@@ -380,7 +380,7 @@ Journal*](https://journal.r-project.org/).
 Another tool I have not yet tried yet (as I’m a `ctb` to the
 `lockedata/starters` package) but looks promising is
 [`rrtools`](https://github.com/benmarwick/rrtools). It provides a
-convienent starting point for writing a journal article, report, or
+convenient starting point for writing a journal article, report, or
 thesis.
 
 ### Publish your analysis to a website
