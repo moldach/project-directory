@@ -409,6 +409,12 @@ combines literate programming (`knitr` and `rmarkdown`) and version
 control (`Git` via `git2r`) to generate a website containing
 time-stamped, versioned, and documented results.
 
+Blog Post
+---------
+
+A much shorter version of this article [appeared originally on
+Medium](https://towardsdatascience.com/the-gold-standard-of-data-science-project-management-13d68c9e85d6)
+
 Acknowledgments
 ---------------
 
