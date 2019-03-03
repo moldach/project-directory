@@ -1,9 +1,9 @@
 <a href="https://images.unsplash.com"><img src="https://images.unsplash.com/photo-1527849214787-c99cd25c2f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" title="ProjectOrganization" alt="ProjectOrganization"></a>
 
-Best Practices for Data Science Project Workflows and File Organization
-=======================================================================
+\# Best Practices for Data Science Project Workflows and File Organization
+==========================================================================
 
-------------------------------------------------------------------------
+:star: Star us on GitHub — it helps!
 
 To ensure replicability and traceability of scientific claims, it is
 essential that the scientific publication, the corresponding data sets,
@@ -123,8 +123,7 @@ name_of_project
 |--run_all.R
 ```
 
-File naming
------------
+### File naming
 
 ------------------------------------------------------------------------
 
@@ -151,7 +150,7 @@ mkdir results-$(date +%F)
 ```
 
 Git with Github
-===============
+---------------
 
 For every project you *should* create a repository on Github (Gitlab,
 Bitbucket, SourceForge, *etc.*) to take advantage of branches & pull

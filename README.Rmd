@@ -12,7 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 <a href="https://images.unsplash.com"><img src="https://images.unsplash.com/photo-1527849214787-c99cd25c2f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" title="ProjectOrganization" alt="ProjectOrganization"></a>
 
 # Best Practices for Data Science Project Workflows and File Organization
-***
+======================
+
+:star: Star us on GitHub — it helps!
+
 To ensure replicability and traceability of scientific claims, it is essential that the scientific publication, the corresponding data sets, and the data analysis are made publicly available. All software should be openly shared and directly accessible to others. Publications  should highlight that the code is freely available in, for example, Github. This openness can increase the chances of getting the paper accepted for publication. Journal editors and reviewers receive the opportunity to reproduce findings during the manuscript review process, increasing confidence in the reported results. Once the paper is published, your work can be reproduced by other member of the scientific community, which can increase citations and foster opportunities for further discussion and collaboration.
 
 ## Basic workflow of data analysis
@@ -91,7 +94,7 @@ name_of_project
 |--run_all.R
 ```
 
-## File naming
+### File naming
 ***
 * Avoid spaces: `2018 eda report.md` is not a good name but `2018_eda_report.md` is.
 * Avoid punctuation, periods and other special characters except for underscores and dashes.
@@ -105,7 +108,7 @@ Create dated directories/files using the command date `+%F` for ISO 8601 (`yyyy-
 mkdir results-$(date +%F)
 ```    
 
-# Git with Github
+## Git with Github
 
 For every project you *should* create a repository on Github (Gitlab, Bitbucket, SourceForge, _etc._) to take advantage of branches & pull requests, code snapshots, tracking project bugs and enhancements using issues, and dissemination of the final results. The recommendations below should be broadly applicable to most repository hosting services. These recommendations take full advantage of Github's features for managing and promoting projects in bioinformatics as well as in many other research domains. 
 
