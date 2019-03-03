@@ -1,7 +1,7 @@
 <a href="https://images.unsplash.com"><img src="https://images.unsplash.com/photo-1527849214787-c99cd25c2f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" title="ProjectOrganization" alt="ProjectOrganization"></a>
 
-\# Best Practices for Data Science Project Workflows and File Organization
-==========================================================================
+Best Practices for Data Science Project Workflows and File Organization
+=======================================================================
 
 :star: Star us on GitHub — it helps!
 
@@ -376,8 +376,7 @@ Journal*](https://journal.r-project.org/).
 
 ------------------------------------------------------------------------
 
-Another tool I have not yet tried yet (as I’m a `ctb` to the
-`lockedata/starters` package) but looks promising is
+Another tool I have not yet tried yet, but looks promising, is
 [`rrtools`](https://github.com/benmarwick/rrtools). It provides a
 convenient starting point for writing a journal article, report, or
 thesis.
@@ -437,8 +436,9 @@ Acknowledgments
     Bryan](https://www.stat.ubc.ca/~jenny/)
 -   [here documentation](https://github.com/r-lib/here), by [Kirill
     Muller](https://github.com/krlmlr)
--   [File organization best practices by Andrew
-    Tran](https://andrewbtran.github.io/NICAR/2018/workflow/docs/01-workflow_intro.html?utm_content=buffer858fd&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+-   [File organization best
+    practices](https://andrewbtran.github.io/NICAR/2018/workflow/docs/01-workflow_intro.html?utm_content=buffer858fd&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+    by [Andrew Tran](https://twitter.com/abtran)
 -   [ropensci/rrrpkg: tools and templates for making research
     compendia](https://github.com/ropensci/rrrpkg#useful-tools-and-templates-for-making-research-compendia)
 -   [How to share data with a
