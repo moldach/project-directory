@@ -105,3 +105,4 @@ Chunk caching is one way to avoid lengthy computations. By setting the `cache = 
 * [Report Writing for Data Science in R](https://leanpub.com/reportwriting), by [Roger D. Peng](http://www.biostat.jhsph.edu/~rpeng/)
 * [here, here](https://github.com/jennybc/here_here), by [Jenny Bryan](https://www.stat.ubc.ca/~jenny/)
 * [here documentation](https://github.com/r-lib/here), by [Kirill Muller](https://github.com/krlmlr)
+* [File organization best practices by Andrew Tran](https://andrewbtran.github.io/NICAR/2018/workflow/docs/01-workflow_intro.html?utm_content=buffer858fd&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
