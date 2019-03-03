@@ -1,7 +1,22 @@
-A best-practices workflow for setting up a new data science project directory in the terminal or R
-==================================================================================================
+<a href="https://images.unsplash.com"><img src="https://images.unsplash.com/photo-1527849214787-c99cd25c2f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" title="ProjectOrganization" alt="ProjectOrganization"></a>
+
+Best Practices for Data Science Project Workflows and File Organization
+=======================================================================
 
 ------------------------------------------------------------------------
+
+To ensure replicability and traceability of scientific claims, it is
+essential that the scientific publication, the corresponding datasets,
+and the data analysis are made publicly available. All software should
+be openly shared and directly acessible to others. Publications should
+highlight that the code is freely available in, for example, Github.
+This openness can increase the chances of getting the paper accepted for
+publicaiton. Journal editors and reviewers recieve the opportunity to
+reproduce findings during the manuscript review process, increasing
+confidence in the reported results. Once the paper is published, your
+work can be reproduced by other member of the scientific community,
+which can increase citations and foster opportunities for further
+discussion and collaboration.
 
 Basic workflow of data analysis
 -------------------------------
@@ -135,6 +150,55 @@ subdirectory.
 mkdir results-$(date +%F)
 ```
 
+Git with Github
+===============
+
+For every project you *should* create a repository on Github (Gitlab,
+Bitbucket, SourceForge, *etc.*) to take advantage of branches & pull
+requests, code snapshots, tracking project bugs and enhancements using
+issues, and dissemination of the final results. The recommendations
+below should be broadly applicable to most repository hosting services.
+These recommendations take full advantage of Github’s features for
+managing and promoting projects in bioinformatics as well as in many
+other research domains.
+
+> Github repositiores are freely visible to all. Many projects decide to
+> share their work publicly and openly from the start of the project in
+> order to attract visibility and to benefit from contributions from the
+> community early on. Private “repos” on Github/Gitlab are used to
+> ensure that work is hidden but also limit collaborations to just those
+> users who are given access to the repository. These repos can then be
+> made public at a later stage, for example upon submission, acceptance,
+> or publicaiton of corresponding journal atricles.
+
+[A useful gist for setting up version control and Github can be found
+here](https://github.com/marskar/respect) and the above was taken from
+the great introduction to Git/Github by [Perez-Riverol *et al.,*
+2016](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947).
+
+Every repository should have ideally the following three files (in
+addition to the code):
+
+-   The `LICENSE` file that clearly defines the permissions and
+    restrictions attached to the code and other files in your
+    repository.
+-   The `README` file which provides a short description of the project,
+    a quick start guide, information on how to contribute, a TODO list,
+    and links to additional documentation.
+-   The `CITATION` file to the repository informs your users how to cite
+    and credit your project.
+
+The `LICENSE` file
+------------------
+
+------------------------------------------------------------------------
+
+Common licenses such as those listed on <http://choosealicense.com> are
+preferred. The `LICENSE` file in the repository should be a plain-text
+file containing the contents of an [Open Source Initiative
+(OSI)-approved license](https://opensource.org/licenses/alphabetical),
+not just a reference to the license.
+
 The `README` file
 -----------------
 
@@ -157,6 +221,9 @@ Update the `README` file as you work. As you create new files and
 folders, add their descriptions to the `README`. Include a list of
 variables, units of measurement of each variable, and information about
 how others should cite your analysis.
+
+[Browse some examples of awesome `README`s
+here](https://github.com/matiassingers/awesome-readme)!
 
 The `DESCRIPTION` file
 ----------------------
@@ -252,22 +319,33 @@ successfully build in a generic Linux environment. The `.zenodo.json`
 file provides machine-readable metafata about the compendium. This is
 useful for automatically archiving the compendium at zenodo.
 
-### Automatically create project skeletons in R
+### Automatically create project skeletons in R and integrate
 
 ------------------------------------------------------------------------
 
-The [`lockedata/starters`
-package](https://github.com/lockedata/starters) on Github provides a
-number of functions, leveraging the `usethis` pacakge, designed to take
-away *some* of the grunt work involved in setting up new projects. The
-`createAnalysisProject()` function creates a project ready for a typical
-analysis project with `packrat` to manage dependencies to keep things
-consistent and reproducible, while the `createPackageProject()` helps
-setup a project with code coverage, vignettes, unit testing *etc.* out
-of the box.
+The [`starters` package](https://github.com/lockedata/starters) on
+Github provides a number of functions, leveraging the `usethis` pacakge,
+designed to take away *some* of the grunt work involved in setting up
+new projects. The `createAnalysisProject()` function creates a project
+ready for a typical analysis project with `packrat` to manage
+dependencies to keep things consistent and reproducible, while the
+`createPackageProject()` helps setup a project with code coverage,
+vignettes, unit testing *etc.* out of the box.
+
+Dedicated code testing is aimed at detecting possible bugs introduced by
+new features or changes in the code or dependencies, as well as
+detecting wrong results, known as *logic errors*, in which the source
+code produces a different result than what was intended. Continuos
+integration provides a way to automatically and systematically run a
+series of tests to check integrity and performance of code, a task that
+can be automated through Github. `starters` sets up \[Travis
+CI\](<a href="https://travis-ci.org/" class="uri">https://travis-ci.org/</a>,
+a hosted continued integration platform that is free for all open-source
+projects. Travis CI builds and test the source code using a plethora of
+options such as different platforms and interpreter versions.
 
 By organizing files into an R package, you follow conventions that save
-you tume thinking about the best way to organize your project. Writing
+you time thinking about the best way to organize your project. Writing
 functions for packages makes it easy to document the use of code
 (particularly if you use `roxygen2`). This documentation can help you be
 productive more quickly when returning to work on a project after
@@ -309,6 +387,24 @@ thesis.
 
 ------------------------------------------------------------------------
 
+The traditional way to promote scientific software (and manuscripts) is
+by publishing a paper in the peer-reviewed scientific literature.
+Additional steps can boost the visibility of an organization. For
+example Github *Pages* are simple websites freely hosted by Github. User
+can create and host blog websites, help pages, manuals, tutorials, and
+websites related to specific projects. Pages come with a powerful static
+site generator called [Jekyll](https://jekyllrb.com/) that can be
+integrate with other frameworks as [Boostrap](http://getbootstrap.com/)
+or platforms such as [Disqus](https://disqus.com/) to support and
+moderate comments.
+
+There are also real-time communication systems such as
+[Gitter](http://gitter.im/) that allows the user community, developers,
+and project collaborators to exchange ideas and issues to report bugs or
+get support. Within a Gitter chat, members can reference issues,
+comments, and pull requests. Github also supports wikis for each
+repository.
+
 The [`workflowr`
 package](https://cran.r-project.org/web/packages/workflowr/index.html)
 combines literate programming (`knitr` and `rmarkdown`) and version
@@ -349,3 +445,5 @@ Acknowledgments
 -   [How to share data with a
     statistician](https://github.com/jtleek/datasharing) by [Jeff
     Leek](http://jtleek.com/)
+-   [Ten Simple Rules for Taking Advantage of
+    Github](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947)
