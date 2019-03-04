@@ -89,9 +89,14 @@ Create `New Project` with `RStudio` (*e.g.* hsapiens-snps) and then
 create the sub folders
 
 ``` r
-folder_names <- c("data/raw", "data/tidy", "refs", "R", "analysis", "figures", "man")
-sapply(folder_names, dir.create)
+library(purrr)
+library(here)
+
+folder_names <- c("data",  here::here("data/raw"), here::here("data/tidy"), "refs", "R", "analysis", "figures", "man")
+# sapply(folder_names, dir.create)  # base R way
+map(folder_names, dir.create) # purrr-fect way
 ```
+![R GIF](http://g.recordit.co/JGiwsAbnLs.gif)
 
 In `R` use the `file.create()` function. To verify that the file has
 been created use `list.files()`. Use `file.rename()` function to change
