@@ -53,6 +53,8 @@ in the `Terminal`:
 mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spaces between subdirectories
 ```
 
+![](http://recordit.co/iA5Q38T49I)
+
 -   All of your raw data goes into `raw` \# Compress (`gzip file.fasta`)
     and read-only (`chmod 400 file.fasta`).
 -   All of your post processed data goes into `tidy`
