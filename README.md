@@ -94,7 +94,7 @@ library(here)
 
 folder_names <- c("data",  here::here("data/raw"), here::here("data/tidy"), "refs", "R", "analysis", "figures", "man")
 # sapply(folder_names, dir.create)  # base R way
-map(folder_names, dir.create) # purrr-fect way
+walk(folder_names, dir.create) # purrr-fect way
 ```
 ![R GIF](http://g.recordit.co/JGiwsAbnLs.gif)
 
