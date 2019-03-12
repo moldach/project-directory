@@ -92,7 +92,8 @@ create the sub folders
 library(purrr)
 library(here)
 
-folder_names <- c("data",  here::here("data/raw"), here::here("data/tidy"), "refs", "R", "analysis", "figures", "man")
+folder_names <- here(c("data", "refs", "R", "analysis", "figures", "man")) # base-level folders
+folder_names <- c(folder_names, here("data", c("raw", "tidy"))) # add data subdirectories
 # sapply(folder_names, dir.create)  # base R way
 walk(folder_names, dir.create) # purrr-fect way
 ```
