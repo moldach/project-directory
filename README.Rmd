@@ -216,7 +216,7 @@ A much shorter version of this article [appeared originally on Medium](https://t
 Matthew J. Oldach 
 
 + E-mail: moldach686@gmail.com
-+ Twitter: [@MattOldach](https://twitter.com/MattOldach)
++ Twitter: [MattOldach](https://twitter.com/MattOldach)
 + Website: [https://moldach.github.io/](https://moldach.github.io/)
 
 ## Acknowledgments

@@ -431,8 +431,7 @@ Matthew J. Oldach
 
 -   E-mail:
     <a href="mailto:moldach686@gmail.com" class="email">moldach686@gmail.com</a>
--   Twitter:
-    \[@MattOldach\](<a href="https://twitter.com/MattOldach" class="uri">https://twitter.com/MattOldach</a>)
+-   Twitter: [MattOldach](https://twitter.com/MattOldach)
 -   Website: <https://moldach.github.io/>
 
 Acknowledgments
