@@ -415,6 +415,18 @@ Blog Post
 A much shorter version of this article [appeared originally on
 Medium](https://towardsdatascience.com/the-gold-standard-of-data-science-project-management-13d68c9e85d6)
 
+### Contact information
+
+------------------------------------------------------------------------
+
+Matthew J. Oldach
+
+-   E-mail:
+    <a href="mailto:moldach686@gmail.com" class="email">moldach686@gmail.com</a>
+-   Twitter:
+    \[@MattOldach\](<a href="https://twitter.com/MattOldach" class="uri">https://twitter.com/MattOldach</a>)
+-   Website: <https://moldach.github.io/>
+
 Acknowledgments
 ---------------
 

@@ -203,6 +203,14 @@ The [`workflowr` package](https://cran.r-project.org/web/packages/workflowr/inde
 
 A much shorter version of this article [appeared originally on Medium](https://towardsdatascience.com/the-gold-standard-of-data-science-project-management-13d68c9e85d6)
 
+### Contact information
+***
+Matthew J. Oldach 
+
++ E-mail: moldach686@gmail.com
++ Twitter: [@MattOldach](https://twitter.com/MattOldach)
++ Website: [https://moldach.github.io/](https://moldach.github.io/)
+
 ## Acknowledgments
 ***
 
