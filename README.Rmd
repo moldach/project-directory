@@ -43,6 +43,8 @@ Create a project directory and nested sub directories with a one-liner in the `T
 mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spaces between subdirectories
 ```
 
+![terminal GIF](http://g.recordit.co/iA5Q38T49I/gif)
+
 * All of your raw data goes into `raw`  # Compress (`gzip file.fasta`) and read-only (`chmod 400 file.fasta`).
 * All of your post processed data goes into `tidy` 
 * Reference Data (*e.g.* Genomes/Transcriptomes) go into `refs`
@@ -63,9 +65,15 @@ There are a few differences between standard skeletons on terminal and `R`.
 Create `New Project` with `RStudio` (_e.g._ hsapiens-snps) and then create the sub folders
 
 ```{r, eval = FALSE}
+library(purrr)
+library(here)
+
 folder_names <- c("data/raw", "data/tidy", "refs", "R", "analysis", "figures", "man")
-sapply(folder_names, dir.create)
+#sapply(folder_names, dir.create) # base R way
+map(folder_names, dir.create) #purrr-fect way
 ```
+
+![R GIF](http://g.recordit.co/JGiwsAbnLs.gif)
 
 In `R` use the `file.create()` function. To verify that the file has been created use `list.files()`. Use `file.rename()` function to change names or the `file.remove()` to remove files, and `file.exists()` to check if a file exists. You can use the `dir.create()` function to create directories in `R` as well.
 

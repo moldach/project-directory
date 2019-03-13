@@ -53,7 +53,7 @@ in the `Terminal`:
 mkdir -p hsapiens-snps/{data/{raw,tidy},refs,src,bin,analysis,figures}  # no spaces between subdirectories
 ```
 
-![terminal GIF](http://g.recordit.co/iA5Q38T49I.gif)
+![terminal GIF](http://g.recordit.co/iA5Q38T49I/gif)
 
 -   All of your raw data goes into `raw` \# Compress (`gzip file.fasta`)
     and read-only (`chmod 400 file.fasta`).
@@ -92,10 +92,11 @@ create the sub folders
 library(purrr)
 library(here)
 
-folder_names <- c("data",  here::here("data/raw"), here::here("data/tidy"), "refs", "R", "analysis", "figures", "man")
-# sapply(folder_names, dir.create)  # base R way
-map(folder_names, dir.create) # purrr-fect way
+folder_names <- c("data/raw", "data/tidy", "refs", "R", "analysis", "figures", "man")
+#sapply(folder_names, dir.create) # base R way
+map(folder_names, dir.create) #purrr-fect way
 ```
+
 ![R GIF](http://g.recordit.co/JGiwsAbnLs.gif)
 
 In `R` use the `file.create()` function. To verify that the file has
