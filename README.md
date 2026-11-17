@@ -276,7 +276,7 @@ dependencies and control the order of code execution.
 On `R` I would strongly recommend using the [Drake
 package](https://github.com/ropensci/drake) which I’ve talked about
 recently: [“Getting Started with Drake in
-R”](https://moldach.github.io/xaringan-presentation_drake/#1).
+R”](https://matthewoldach.com/field-notes/drake/).
 
 If your workflow combines `R` code, `terminal` and `python` I would
 suggest using [`snakemake`](https://snakemake.readthedocs.io/en/stable/)
@@ -432,7 +432,7 @@ Matthew J. Oldach
 -   E-mail:
     <a href="mailto:moldach686@gmail.com" class="email">moldach686@gmail.com</a>
 -   Twitter: [MattOldach](https://twitter.com/MattOldach)
--   Website: <https://moldach.github.io/>
+-   Website: <https://matthewoldach.com/>
 
 Acknowledgments
 ---------------
